@@ -1,0 +1,62 @@
+{
+  "mkdir": {
+    "description": "Creates a directory at the given path.",
+    "parameters": [
+      "path",
+      "content"
+    ],
+    "secure": true,
+    "example": {
+      "action": "mkdir",
+      "path": "workspace/example"
+    }
+  },
+  "touch": {
+    "description": "Creates or overwrites a file with optional content.",
+    "parameters": [
+      "path",
+      "content"
+    ],
+    "secure": true,
+    "example": {
+      "action": "touch",
+      "path": "workspace/example"
+    }
+  },
+  "exec": {
+    "description": "Executes a shell command using subprocess.",
+    "parameters": [
+      "path",
+      "content"
+    ],
+    "secure": true,
+    "example": {
+      "action": "exec",
+      "path": "workspace/example"
+    }
+  },
+  "generate-react-component-files": {
+    "description": "Creates React component boilerplate files using Tailwind in the given path.",
+    "parameters": [
+      "path",
+      "content"
+    ],
+    "secure": true,
+    "example": {
+      "action": "generate-react-component-files",
+      "path": "workspace/example"
+    }
+  },
+  "write_text": {
+    "description": "Write arbitrary text to a file.\nparams = { \"action\": \"write_text\", \"path\": \"workspace/foo.txt\", \"content\": \"Hello\" }",
+    "parameters": [
+      "path",
+      "content"
+    ],
+    "secure": true,
+    "example": {
+      "action": "write_text",
+      "path": "workspace/example"
+    }
+  }
+}

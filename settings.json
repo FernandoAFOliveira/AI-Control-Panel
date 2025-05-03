@@ -1,0 +1,29 @@
+{
+    "local_model": {
+        "name": "llama3",
+        "url": "http://localhost:11434/api/chat",
+        "confidence_threshold": 6,
+        "fallback_enabled": true
+    },
+    "cloud_model": {
+        "provider": "openai",
+        "model": "gpt-4",
+        "use_fallback": true,
+        "api_key_env": "CLOUD_MODEL_API_KEY"
+    },
+    "logging": {
+        "max_log_size_mb": 2,
+        "archive_path": "logs/archive/"
+    },
+    "memory": {
+        "file": "C:/Dev/AI/memory/core.json"
+    },
+    "task_queue": {
+        "file": "task_engine/task_queue.txt",
+        "result_file": "ai_model/task_result.json",
+        "status_file": "ai_model/status_report.json"
+    },
+    "workspace": {
+        "path": "/workspace/"
+    }
+}

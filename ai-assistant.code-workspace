@@ -1,0 +1,36 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    // Python environment
+    "python.defaultInterpreterPath": ".venv/Scripts/python.exe",
+    "python.venvPath": ".venv",
+    "python.languageServer": "Pylance",
+    "python.analysis.typeCheckingMode": "basic",
+    // Tailwind CSS support
+    "tailwindCSS.includeLanguages": {
+      "typescript": "javascript",
+      "typescriptreact": "html"
+    },
+    "tailwindCSS.experimental.configFile": "./frontend/tailwind.config.js",
+    // ESLint and formatting
+    "eslint.alwaysShowStatus": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.fixAll": "explicit",
+      "source.organizeImports": "explicit"
+    },
+    // Environment handling
+    "dotenv.enableAutoload": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/.venv": true,
+      "**/node_modules": true,
+      "**/dist": true
+    }
+  }
+}
