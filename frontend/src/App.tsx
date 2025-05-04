@@ -1,19 +1,25 @@
+import "./App.css";
+import { useStatus } from "./hooks/useStatus";
+
 function App() {
+  const status = useStatus();
+
+  if (!status) return <p>Loading status…</p>;
+
+  const dot = (ok: boolean) =>
+    <span style={{
+      display: "inline-block",
+      width: 10, height: 10, borderRadius: "50%",
+      background: ok ? "limegreen" : "crimson", marginRight: 4
+    }} />;
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-blue-100">
-      <div className="text-center px-6 py-10 rounded-2xl shadow-xl bg-white max-w-lg w-full border border-gray-200">
-        <h1 className="text-4xl font-bold text-blue-600 mb-4">
-          🧠 AI Assistant Control Panel
-        </h1>
-        <p className="text-gray-700 text-lg">
-          Your frontend is configured and running with <span className="font-semibold">React</span>, <span className="font-semibold">Vite</span>, and <span className="font-semibold">TailwindCSS</span>.
-        </p>
-        <div className="mt-6">
-          <button className="px-4 py-2 bg-blue-600 text-white font-medium rounded hover:bg-blue-700 transition">
-            Test Button
-          </button>
-        </div>
-      </div>
+    <div className="p-4 space-y-2 text-sm font-mono">
+      <div>{dot(status.ai_model === "ready")} AI-Model: {status.ai_model}</div>
+      <div>{dot(status.task_engine === "idle" || status.task_engine === "running")}
+        Task-Engine: {status.task_engine}</div>
+      <div>CPU {status.cpu}%</div>
+      <div>RAM {status.ram}%</div>
     </div>
   );
 }
