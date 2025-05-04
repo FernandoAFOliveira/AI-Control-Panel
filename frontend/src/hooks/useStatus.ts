@@ -14,7 +14,7 @@ export const useStatus = (interval = 2000) => {
     let timer: NodeJS.Timeout;
     async function fetchStatus() {
       try {
-        const res = await fetch("http://localhost:8000/status");
+        const res = await fetch("/api/status");
         setStatus(await res.json());
       } catch (err) {
         console.error("status poll failed", err);

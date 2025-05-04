@@ -8,7 +8,7 @@ export function useLogs() {
     let cancelled = false;
 
     async function stream() {
-      const res = await fetch("http://localhost:8000/logs/stream");
+      const res = await fetch("/api/logs/stream");
       if (!res.body) return;
       const reader = res.body.getReader();
       const decoder = new TextDecoder();

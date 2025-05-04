@@ -9,14 +9,14 @@ export const useConfig = () => {
   const [cfg, setCfg] = useState<Config | null>(null);
 
   useEffect(() => {
-    fetch("http://localhost:8000/config")
+    fetch("/api/config")
       .then(r => r.json())
       .then(setCfg)
       .catch(console.error);
   }, []);
 
   const update = async (patch: Partial<Config>) => {
-    const res = await fetch("http://localhost:8000/config", {
+    const res = await fetch("/api/config", {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(patch)

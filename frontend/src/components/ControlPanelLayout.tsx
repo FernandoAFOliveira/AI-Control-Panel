@@ -1,19 +1,21 @@
 // frontend/src/components/ControlPanelLayout.tsx
 import React, { useState } from "react";
 import { Panel } from "../layout/Panel";
-import { ControlPanelNav } from "./ControlPanelNav";
-import { CloudPage } from "./pages/CloudPage";
-import { ComputePage } from "./pages/ComputePage";
-import { LogsPage } from "./pages/LogsPage";
-import { MemoryPage } from "./pages/MemoryPage";
-import { ModelsPage } from "./pages/ModelsPage";
-import { StatusPage } from "./pages/StatusPage";
+import { ControlPanelNav } from "./ControlPanelNav"; // correct relative path
+
+import { CloudPage } from "./CloudPage";
+import { ComputePage } from "./ComputePage";
+import { LogsPage } from "./LogsPage";
+import { MemoryPage } from "./MemoryPage";
+import { ModelsPage } from "./ModelsPage";
+import { StatusPage } from "./StatusPage";
+
+type Section = "Status" | "Compute" | "Models" | "Cloud" | "Logs" | "Memory";
 
 export default function ControlPanelLayout() {
-    const [section, setSection] = useState<string>("Status");
+    const [section, setSection] = useState<Section>("Status");
 
-    /** Dummy pages map */
-    const pages: Record<string, React.ReactNode> = {
+    const pages: Record<Section, React.ReactNode> = {
         Status: <StatusPage />,
         Compute: <ComputePage />,
         Models: <ModelsPage />,
@@ -23,8 +25,15 @@ export default function ControlPanelLayout() {
     };
 
     return (
-        <Panel sidebar={<ControlPanelNav selected={section} onSelect={setSection} />}>
-            {pages[section] || <div className="p-4">Unknown Section</div>}
+        <Panel
+            sidebar={
+                <ControlPanelNav
+                    selected={section}
+                    onSelect={setSection}    // setSection expects a Section, no cast needed
+                />
+            }
+        >
+            {pages[section]}
         </Panel>
     );
 }
