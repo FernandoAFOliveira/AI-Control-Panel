@@ -1,0 +1,3 @@
+# /Control-Panel/.gitattributes
+# Always store LF in Git, convert nothing on checkout
+* text=auto eol=lf
