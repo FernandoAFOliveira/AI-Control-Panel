@@ -1,6 +1,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.routers import system
+from backend.routers.logs import router as logs_router
 
 app = FastAPI()
 
@@ -14,7 +15,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-app.include_router(system.router)            # or include_router(..., prefix="/api")
+app.include_router(system.router)
+app.include_router(logs_router)# or include_router(..., prefix="/api")
 
 @app.get("/")
 def read_root():

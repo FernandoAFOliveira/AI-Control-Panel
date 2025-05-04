@@ -1,10 +1,12 @@
 // frontend/src/App.tsx
 import { ControlPanel } from "./components/ControlPanel";
+import { useLogs } from "./hooks/useLogs";
 import { useStatus } from "./hooks/useStatus";
 import { Panel } from "./layout/Panel";
 
 export default function App() {
   const status = useStatus();
+  const logs = useLogs();
 
   const dot = (ok: boolean) => (
     <span
@@ -23,8 +25,8 @@ export default function App() {
     <Panel sidebar={<ControlPanel />}>
       {status ? (
         <div className="space-y-2 text-sm font-mono">
-          <pre className="h-64 bg-black text-green-400 p-2 rounded">
-            Terminal output coming soon…
+          <pre className="h-64 overflow-auto bg-black text-green-400 p-2 rounded">
+            {logs || "Waiting for logs…"}
           </pre>
 
           <div>{dot(status.ai_model === "ready")} AI-Model: {status.ai_model}</div>
