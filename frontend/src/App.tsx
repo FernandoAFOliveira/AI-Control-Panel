@@ -1,8 +1,9 @@
-import "./App.css";
+// frontend/src/App.tsx
 import { ControlPanel } from "./components/ControlPanel";
 import { useStatus } from "./hooks/useStatus";
+import { Panel } from "./layout/Panel";
 
-function App() {
+export default function App() {
   const status = useStatus();
 
   const dot = (ok: boolean) => (
@@ -19,32 +20,22 @@ function App() {
   );
 
   return (
-    <div className="flex flex-col items-center pt-8 space-y-6">
-
-      {/* --- NEW: runtime-config dropdown --- */}
-      <ControlPanel />
-
-      {/* --- existing live-status widget --- */}
+    <Panel sidebar={<ControlPanel />}>
       {status ? (
-        <div className="text-sm font-mono space-y-1">
-          <div>
-            {dot(status.ai_model === "ready")} AI-Model: {status.ai_model}
-          </div>
-          <div>
-            {dot(
-              status.task_engine === "idle" ||
-              status.task_engine === "running"
-            )}
-            Task-Engine: {status.task_engine}
-          </div>
+        <div className="space-y-2 text-sm font-mono">
+          <pre className="h-64 bg-black text-green-400 p-2 rounded">
+            Terminal output coming soon…
+          </pre>
+
+          <div>{dot(status.ai_model === "ready")} AI-Model: {status.ai_model}</div>
+          <div>{dot(status.task_engine === "idle" || status.task_engine === "running")}
+            Task-Engine: {status.task_engine}</div>
           <div>CPU {status.cpu}%</div>
           <div>RAM {status.ram}%</div>
         </div>
       ) : (
         <p>Loading status…</p>
       )}
-    </div>
+    </Panel>
   );
 }
-
-export default App;
