@@ -1,54 +1,70 @@
 # Control-Panel/start_all.py
-"""Launches the Voice Assistant, Backend API server, and Model Console in separate terminals.
-Auto-generates ai_model/actions.json before startup.
-Warns if .env file with secrets is missing.
+"""
+Boots the entire stack:
+  • Regenerates ai_model/actions.json
+  • Task Engine (voice assistant)  –> new terminal
+  • Task Monitor                  –> new terminal
+  • Backend (FastAPI / Uvicorn)   –> new terminal
+  • Model Console                 –> new terminal
+  • Front-end (Vite dev server)   –> background process
+Warns if .env is missing.
 """
 
 import subprocess
 import os
-import time
 import sys
+import time
+from pathlib import Path
 
-# Paths to Python scripts
-GENERATOR_PATH = os.path.join("ai_model", "generate_actions_json.py")
-ENGINE_PATH = os.path.join("task_engine", "voice_assistant.py")
-MONITOR_PATH = os.path.join("task_engine", "task_monitor.py")
-BACKEND_PATH = os.path.join("backend", "main.py")
-CONSOLE_PATH = os.path.join("ai_model", "model_console.py")
+# ---------------------------------------------------------------------- #
+# 0 · Path helpers
+# ---------------------------------------------------------------------- #
+BASE_DIR = Path(__file__).resolve().parent          # …/Control-Panel
+GENERATOR_PATH = BASE_DIR / "ai_model" / "generate_actions_json.py"
+ENGINE_PATH    = BASE_DIR / "task_engine" / "voice_assistant.py"
+MONITOR_PATH   = BASE_DIR / "task_engine" / "task_monitor.py"
+CONSOLE_PATH   = BASE_DIR / "ai_model" / "model_console.py"
+FRONTEND_CMD   = ["npm", "run", "dev"]
 
-# Warn user if .env with secrets is missing
-if not os.path.exists(".env"):
-    print("⚠️  WARNING: No .env file found. Please create one based on .env.example to enable ChatGPT API access.")
+# ---------------------------------------------------------------------- #
+# 1 · Pre-flight
+# ---------------------------------------------------------------------- #
+if not (BASE_DIR / ".env").exists():
+    print("⚠️  ️No .env file found. Copy .env.example and add your secrets.")
 
-print("🔧 Regenerating actions.json from task library...")
-subprocess.run([sys.executable, GENERATOR_PATH], check=True)
+print("🔧 Regenerating actions.json from task library…")
+subprocess.run([sys.executable, str(GENERATOR_PATH)], check=True)
 
-print("🔧 Starting Local AI Assistant, Backend, and Console...")
+# ---------------------------------------------------------------------- #
+# 2 · Spawn long-running services (each in its own terminal)
+# ---------------------------------------------------------------------- #
+print("🔧 Starting Local AI Assistant, Backend, and Console…")
 
-# Start the Task Engine (Voice Assistant)
-subprocess.Popen(["start", "cmd", "/k", f"python {ENGINE_PATH}"], shell=True)
+def spawn(cmd: str | list[str]):
+    # On Windows we launch each service in its own `cmd /k` window.
+    if os.name == "nt":
+        subprocess.Popen(["start", "cmd", "/k"] + (cmd if isinstance(cmd, list) else [cmd]),
+                         shell=True)
+    else:                               # macOS / Linux – open plain terminals
+        subprocess.Popen(cmd if isinstance(cmd, list) else cmd.split())
 
-# Wait briefly before launching backend and monitor
-time.sleep(2)
+spawn([sys.executable, str(ENGINE_PATH)])
+time.sleep(1)
+spawn([sys.executable, str(MONITOR_PATH)])
+spawn("uvicorn backend.main:app --reload")
+spawn([sys.executable, str(CONSOLE_PATH)])
 
-# Start the Task Monitor
-import subprocess
-
-subprocess.Popen(["start", "cmd", "/k", f"python {MONITOR_PATH}"], shell=True)
-
-# Start the Backend
-subprocess.Popen(["start", "cmd", "/k", "uvicorn backend.main:app --reload"], shell=True)
-
-# Start the Model Console
-subprocess.Popen(["start", "cmd", "/k", f"python {CONSOLE_PATH}"], shell=True)
+# Front-end runs quietly in the background (same terminal)
+subprocess.Popen(FRONTEND_CMD, cwd=BASE_DIR / "frontend",
+                 shell=(os.name == "nt"))
 
 print("✅ All components launched in separate terminals.")
-# ───────────────────────── keep parent process alive ───────────────────────── #
-print("✅ All components launched in separate terminals.")
+
+# ---------------------------------------------------------------------- #
+# 3 · Keep parent process alive so VS Code terminals stay open
+# ---------------------------------------------------------------------- #
 try:
     while True:
-        time.sleep(60)          # ☕  idle; Ctrl-C stops the whole stack
+        time.sleep(60)
 except KeyboardInterrupt:
     print("Shutting down…")
-
-
