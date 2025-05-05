@@ -1,3 +1,4 @@
+// frontend/src/components/ControlPanel.tsx
 import { useConfig } from "../hooks/useConfig";
 
 const profiles = ["eco", "balanced", "performance"] as const;

@@ -1,3 +1,4 @@
+// frontend/src/hooks/useStatus.ts
 import { useEffect, useState } from "react";
 
 export interface Status {

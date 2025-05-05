@@ -1,3 +1,4 @@
+// frontend/src/hooks/useConfig.ts
 import { useEffect, useState } from "react";
 
 export interface Config {

@@ -1,231 +1,13 @@
 Control-Panel/
-    .env
-    .env.example
-    .gitattributes
-    .gitignore
-    AI-Assistant-Control-Panel.md
-    ai-assistant.code-workspace
     config.py
-    generate_tree.py
     logger.py
-    package-lock.json
     package.json
-    project_tree.txt
     refactor.py
     requirements.txt
     runtime_config.py
     settings.json
     setup-ai-assistant.ps1
     start_all.py
-    .git/
-        COMMIT_EDITMSG
-        config
-        description
-        FETCH_HEAD
-        HEAD
-        index
-        hooks/
-            applypatch-msg.sample
-            commit-msg.sample
-            fsmonitor-watchman.sample
-            post-update.sample
-            pre-applypatch.sample
-            pre-commit.sample
-            pre-merge-commit.sample
-            pre-push.sample
-            pre-rebase.sample
-            pre-receive.sample
-            prepare-commit-msg.sample
-            push-to-checkout.sample
-            sendemail-validate.sample
-            update.sample
-        info/
-            exclude
-        logs/
-            HEAD
-            refs/
-                heads/
-                    main
-                remotes/
-                    origin/
-                        HEAD
-                        main
-        objects/
-            01/
-                4c6dcefea031a0eb91d76a357a75151d391b02
-            03/
-                05ec01320eb55fd0de466bf1a38ace74bfb49d
-            08/
-                6d4752c0364043ddae0ad75628e709f4771932
-                7f84be1d05e7bffdf77e37280831bcd8917451
-            09/
-                2408a9f09eae19150818b4f0db5d1b70744828
-            0d/
-                68e396767c9437534db201f6db534783e7a6b7
-            0f/
-                7a8c63bdfaf014415deb17348b531682d80996
-            11/
-                f02fe2a0061d6e6e1f271b21da95423b448b32
-            14/
-                c496fbce0ea1adf3a1bc0ffceaca409bafbf5d
-            17/
-                ea8341fc6186ce78f62e91b6f33084f7103eaf
-            18/
-                b15ddf6f3fdd382ce340d5822636bb3514f44d
-            19/
-                9c57ec35d8dfe61df35e25274fa5cce3e42ef3
-            1c/
-                30872d69a7a8f028de92306832110c194799f8
-            1f/
-                fef600d959ec9e396d5a260bd3f5b927b2cef8
-            23/
-                e16e7b6f779f361ec931744df9212cf2ae83c4
-            25/
-                6993dcc2840c78bac8eb7ba2322bf4b115d9e5
-            26/
-                a03d63999a4ed4267ac62d0124b94e5f7baf2c
-            27/
-                26cf4e950e6051058010c4d9f60a5298bb1367
-            2b/
-                0e91e8c9a03cc23f70e7ae71fd06b907a54317
-            2c/
-                79a54fff5ac58d2c429431a9dffb56e4f9d411
-                deb896440e0fe42d03597b8341b562b4e0a51e
-            33/
-                1c3afcda69d7d757410d97ed87131d45787087
-            35/
-                8ca9ba93f089b0133f05933f133a446402eb17
-            36/
-                775da96fc0ee7d45b43198b11663774c7457ae
-            44/
-                29674e5cd02b37dc6b0336b7738f0fe5cb6fca
-            46/
-                4eb3d171204f2e7fb0146fa38e86135dd08859
-            4b/
-                3043aafd604269286716f954c6da06a13b8608
-                40cdf96fc74f459f4e6ad118436b04f6f23aee
-            4d/
-                0eba98f4c1671d512954e32c5970bc0bfba7bc
-                851a427cd1dea8f90446955a2b7ee658dfaeec
-            4f/
-                c7b0ae0e29d7ddf5a71d0d77d8dfff2222119d
-            50/
-                4ac61497d9b4dd119f1372b8539fe2f13b8f79
-            53/
-                06e7a73ab991be52a2dd1962962396541702d7
-                111eac0249948d453bf47445d31e8837269ae1
-            54/
-                ebf8f43e949a03215798b6cf3e84971bfbe81f
-            55/
-                41cde64be34c1971a00ae9caf62e69da8ae5ca
-                7b37c44d5cb352ff331f90e7fba0189cdfa65e
-            56/
-                5f323e24284774685ef638d0e8030ed626df25
-            57/
-                a6884c310cbd272dcec16ffd88206b0321ac8f
-            5c/
-                73bee681399b81e7abebc5536f182cbdbbd294
-            68/
-                757f753c1dcc9860773e16b947800305a09da5
-            6c/
-                87de9bb3358469122cc991d5cf578927246184
-                bc6ac8f4d1872c69d28ff88d537bce046365d2
-            72/
-                827cbfb212447152c92c11e18f7c22fc696be2
-                bfceb8a17a1e5e0c5797758036ba584e32b5dd
-            7a/
-                43bb07944d3304aee1c45e3795fd2d493527c6
-            81/
-                8d6462c316f4c702d41baf120c3296863816fa
-            8b/
-                0f57b91aeb45c54467e29f983a0893dc83c4d9
-            8c/
-                2348dd9d89702f42bfd54999f69a6d6374eab5
-            94/
-                c0b2fc152a086447a04f62793957235d2475be
-            96/
-                f925f9e2c9b5bf5aa15336248fc1c05a612594
-            97/
-                98dc50e48ea630c6f83a23f5e4fdb1e2112f6f
-            98/
-                f1f254a68e03f97ea46753d33178825e17e591
-            9a/
-                5c2cf8a994f048199c82bab113fddd5724a6ef
-            a3/
-                cfdda14c1e95f321863f675a7cd6bc4cfaa154
-            a5/
-                47bf36d8d11a4f89c59c144f24795749086dd1
-            a9/
-                fc2362497ad052b16084c2698ab0a6fb2d864b
-            b1/
-                57559f8185681c73eb68db192600a394b30c18
-            b9/
-                61b69a94ac50a51cc7df9041faeeb57e1e109f
-                d355df2a5956b526c004531b7b0ffe412461e0
-            ba/
-                6f69f00c8be9efb4a32de3f467676450722996
-            be/
-                f5202a32cbd0632c43de40f6e908532903fd42
-            c0/
-                82877875fbb03e9a2fc2a6acd8b7b331f2ca1c
-            c4/
-                f696237de57ddd86f7be9929f17d458358c04c
-            c6/
-                3fc50ab00747921a56d71f113193be6a0ea634
-            d5/
-                b9c1596d418e4bf99d8a5679d0807b9214cb55
-            d9/
-                072df9d6165fa75b23d4097a8a20956c4e72b3
-                5558ccdfe31584cdb1f68a21b8c04f1a212bfe
-            da/
-                9844432b833b4bb48e51949af92378b0c83eb7
-            db/
-                0becc8b033a4a78144f4a3bb852082fe91cd62
-            dd/
-                5ae5069106d9dd807b4cff2ee6bb539cad460e
-            de/
-                7b5084150181516107f6f19bff88d5b4de0232
-            e0/
-                2b2cd1ffe4088dba39641b63d79e494cd858b7
-                cb4fafe2b4d567a6a39cdfc62ffb5dfce02ece
-            e1/
-                945236f0577ce29f648220cb8ce312a21b0ec1
-            e2/
-                62a9c57bdbbdd9b6bfa02a5bbae8fc51a48b25
-            e4/
-                b78eae12304a075fa19675c4047061d6ab920d
-            e5/
-                08c25a6a150a7f0c16154d08bf3222d76bba7e
-            e6/
-                9de29bb2d1d6434b8b29ae775ad8c2e48c5391
-            e7/
-                b8dfb1b2a60bd50538bec9f876511b9cac21e3
-            e9/
-                929cfac0792521a609a6b2148ecf2b9544ec1b
-            f1/
-                d1fdaf24c1080cdcb76cb7eee45958c80f0b8a
-            f2/
-                ca87017a56c00cdb53bd9488c91df203b1084d
-            f8/
-                c287994be1d59e65018301ada07d12646b55e4
-            fa/
-                bcf4ac00b26236f1bf127b8829882c3b3ef09c
-            fb/
-                05d9d5e27901154d651bbadef6bf32f4681c87
-            info/
-            pack/
-        refs/
-            heads/
-                main
-            remotes/
-                origin/
-                    HEAD
-                    main
-            tags/
-    .vscode/
-        launch.json
-        settings.json
-        tasks.json
     ai_model/
         actions.json
         generate_actions_json.py
@@ -239,15 +21,17 @@ Control-Panel/
     backend/
         main.py
         routers/
+            logs.py
             system.py
+    docs/
+        AI-Assistant-Control-Panel.md
     frontend/
-        .gitignore
+        electron-main.cjs
         eslint.config.js
         index.html
-        package-lock.json
         package.json
         postcss.config.js
-        README.md
+        preload.js
         tailwind.config.js
         tsconfig.app.json
         tsconfig.json
@@ -261,19 +45,188 @@ Control-Panel/
             main.tsx
             vite-env.d.ts
             assets/
+                links.txt
                 react.svg
+                backgrounds/
+                    hud-ring-glow.png
+                icons/
+                    icons8-cancel-3d-fluency.zip
+                    icons8-check-mark-3d-fluency.zip
+                    icons8-control-panel-94.png
+                    icons8-microchip-94.png
+                    icons8-microphone-94 (1).png
+                    icons8-microphone-94.png
+                    icons8-shutdown-64.png
+                    icons8-shutdown-94.png
+                    icons8-slider-94.png
+                    microprocessor.png
+                    video_mixer (1).png
+                    video_mixer.png
+                images/
+                    2447044.svg
+                    blue-futuristic-networking-technology-vector.zip
+                    colorful-futuristic-background-with-shiny-particles.zip
+                    futuristic-holographic-infographic-element-collection.zip
+                    realistic-background-futuristic-style.zip
+                    blue-futuristic-networking-technology-vector/
+                        v617batch2-bb-02-technology.eps
+                        v617batch2-bb-02-technology.jpg
+                    colorful-futuristic-background-with-shiny-particles/
+                        4127298.jpg
+                        4127299.eps
+                        4127300.ai
+                        hud-ring-glow.png
+                        License free.txt
+                        License premium.txt
+                    futuristic-holographic-infographic-element-collection/
+                        2436382.jpg
+                        2447044.eps
+                        2447045.ai
+                        Fonts.txt
+                        License free.txt
+                        License premium.txt
+                    realistic-background-futuristic-style/
+                        6106987.ai
+                        6106989.eps
+                        6106991.jpg
+                svg/
+                    add_box_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    archive.svg
+                    arrow_back_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_back_ios_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_back_ios_new_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_circle_down_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_circle_left_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_circle_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_downward_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_forward_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_forward_ios_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_upward_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    assignment_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    blur_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    bolt_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    box-arrow-down.svg
+                    box-arrow-up.svg
+                    broadcast.svg
+                    check_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    chevron_left_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    circuitry.svg
+                    close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    cloud-arrow-down.svg
+                    cloud-arrow-up.svg
+                    cloud-check.svg
+                    cloud-slash.svg
+                    cloud.svg
+                    cognition_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    columns.svg
+                    cpu.svg
+                    dangerous_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    database.svg
+                    delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    done_outline_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    download-simple.svg
+                    download.svg
+                    ear_sound_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    electric_bolt_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    encrypted_add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    error_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    expand_circle_down_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    file-archive.svg
+                    flash_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    flash_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    floppy-disk-back.svg
+                    folder-lock.svg
+                    folder-open.svg
+                    folder.svg
+                    forward_to_inbox_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    gear.svg
+                    graphics-card.svg
+                    headset.svg
+                    hearing_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    history_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg
+                    history_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    info_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    keyboard_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    keyboard_hide_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    keyboard_lock_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    keyboard_lock_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    laptop_chromebook_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    left_panel_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    list_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    memory.svg
+                    microphone-slash.svg
+                    microphone-stage.svg
+                    microphone.svg
+                    mic_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    mic_alert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    mic_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    mode_off_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    mouse_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    neurology_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    notifications_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    notifications_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    notification_important_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    outbox_alt_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    outgoing_mail_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    plug.svg
+                    plus-circle.svg
+                    priority_high_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    puzzle-piece.svg
+                    record_voice_over_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    refresh_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    right_panel_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg
+                    right_panel_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    schedule_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    select_to_speak_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    send_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    settings_bluetooth_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    settings_voice_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    share_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    sliders-horizontal.svg
+                    sliders.svg
+                    speech_to_text_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    stack.svg
+                    storage_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    switch_left_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    switch_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    terminal-window.svg
+                    terminal.svg
+                    timeline_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    timer_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    toggle-left.svg
+                    toggle-right.svg
+                    upload-simple.svg
+                    upload.svg
+                    usb.svg
+                    warning_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg
+                    warning_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    wifi-high.svg
+                    wifi-x.svg
+                    wrench.svg
             components/
+                BackgroundPanel.tsx
+                CloudPage.tsx
+                ComputePage.tsx
                 ControlPanel.tsx
+                ControlPanelLayout.tsx
+                ControlPanelNav.tsx
+                LogsPage.tsx
+                MemoryPage.tsx
+                ModelsPage.tsx
+                StatusPage.tsx
+                topControlBar.jsx
+                TopControlBar.tsx
             hooks/
                 useConfig.ts
+                useLogs.ts
                 useStatus.ts
             layout/
                 Panel.tsx
-    logs/
-        log_config.json
-        model_console.log
-        task_monitor.log
-        archive/
+    scripts/
+        add_headers.py
+        generate_tree.py
     task_engine/
         log.txt
         task_library.py
@@ -282,8 +235,3 @@ Control-Panel/
         utils.py
         voice_assistant.py
         __init__.py
-    workspace/
-        user_prefs.json
-        test_ollama_success/
-        test_run_01/
-        test_scenario/

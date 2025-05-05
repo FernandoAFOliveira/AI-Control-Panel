@@ -1,3 +1,4 @@
+// settings.json
 {
     "local_model": {
         "name": "llama3",
@@ -25,5 +26,27 @@
     },
     "workspace": {
         "path": "/workspace/"
+    },
+    "simpleCommentHeader.configuration": {
+        "language": {
+            "typescript": {
+                "header": [
+                    "/**",
+                    " * @file: ${relativePath}",
+                    " * @created: ${createdAt}",
+                    " * @author: Fernando",
+                    " */"
+                ]
+            }
+        },
+        "python": {
+            "header": [
+                "# ======================================",
+                "# @file: ${relativePath}",
+                "# @created: ${createdAt}",
+                "# @author: Fernando",
+                "# ======================================"
+            ]
+        }
     }
 }

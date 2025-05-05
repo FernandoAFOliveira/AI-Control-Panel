@@ -1,3 +1,4 @@
+// frontend/src/App.tsx
 import BackgroundPanel from './components/BackgroundPanel';
 import ControlPanelLayout from './components/ControlPanelLayout';
 

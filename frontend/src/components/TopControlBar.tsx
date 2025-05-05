@@ -1,3 +1,4 @@
+// frontend/src/components/TopControlBar.tsx
 import React from 'react';
 
 const TopControlBar: React.FC = () => {
