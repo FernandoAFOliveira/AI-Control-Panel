@@ -1,4 +1,4 @@
-# add_headers.py
+# scripts/add_headers.py
 import os
 from pathlib import Path
 
@@ -13,7 +13,6 @@ COMMENT_STYLES = {
     ".tsx": "//",
     ".jsx": "//",
     ".css": "/* */",
-    ".json": "//",
     ".sh": "#",
     ".c": "//",
     ".cpp": "//",
@@ -23,22 +22,13 @@ COMMENT_STYLES = {
     ".yaml": "#",
 }
 
-SAFE_JSON_FILES = {
-    "settings.json",
-    "tsconfig.json",
-    "tsconfig.app.json",
-    "tsconfig.node.json",
-}
-
-def is_safe_to_comment(file_path):
+# JSON files are now entirely excluded
+def is_safe_to_comment(file_path: Path):
     if file_path.name == "__init__.py":
         return False
-    if file_path.suffix in {".py", ".ts", ".tsx", ".js", ".html"}:
-        return True
-    if file_path.name in SAFE_JSON_FILES:
-        return True
-    return False
-
+    if file_path.suffix == ".json":
+        return False
+    return file_path.suffix in COMMENT_STYLES
 
 def get_comment_block(filepath):
     ext = os.path.splitext(filepath)[1]
@@ -59,10 +49,14 @@ def get_comment_block(filepath):
 
 def insert_header(filepath):
     try:
+        path_obj = Path(filepath)
+        if not is_safe_to_comment(path_obj):
+            return
+
         with open(filepath, "r", encoding="utf-8") as f:
             contents = f.read()
 
-        # Skip if the file already starts with one of our comment markers
+        # Skip if already commented
         if any(contents.lstrip().startswith(marker.split()[0]) for marker in COMMENT_STYLES.values()):
             return
 
@@ -75,14 +69,11 @@ def insert_header(filepath):
         print(f"⚠️ Skipped {filepath}: {e}")
 
 def walk_project(root="."):
-    root_path = Path(root)
-    for current_root, dirs, files in os.walk(root_path):
+    for current_root, dirs, files in os.walk(root):
         dirs[:] = [d for d in dirs if d not in EXCLUDE_DIRS]
         for file in files:
-            file_path = Path(current_root) / file
-            if is_safe_to_comment(file_path):
-                insert_header(str(file_path))
-
+            filepath = os.path.join(current_root, file)
+            insert_header(filepath)
 
 if __name__ == "__main__":
     walk_project()
