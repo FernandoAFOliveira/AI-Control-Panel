@@ -1,4 +1,5 @@
-/** @type {import('tailwindcss').Config} */
+// /Control-Panel/frontend/tailwind.config.js
+// /** @type {import('tailwindcss').Config} */
 module.exports = {
     content: [
       "./index.html",
@@ -6,7 +7,11 @@ module.exports = {
       "./src/**/*.{js,ts,jsx,tsx}".replace(/\\/g, "/"),
     ],
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          panel: '#0B1120',
+        },
+      },
     },
     plugins: [],
   }

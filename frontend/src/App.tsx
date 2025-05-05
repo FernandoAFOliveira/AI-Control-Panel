@@ -1,6 +1,10 @@
-// frontend/src/App.tsx
-import ControlPanelLayout from "./components/ControlPanelLayout";
+import BackgroundPanel from './components/BackgroundPanel';
+import ControlPanelLayout from './components/ControlPanelLayout';
 
 export default function App() {
-  return <ControlPanelLayout />;
+  return (
+    <BackgroundPanel>
+      <ControlPanelLayout />
+    </BackgroundPanel>
+  );
 }

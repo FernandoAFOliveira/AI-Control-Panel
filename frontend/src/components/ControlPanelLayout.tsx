@@ -1,7 +1,7 @@
 // frontend/src/components/ControlPanelLayout.tsx
 import React, { useState } from "react";
 import { Panel } from "../layout/Panel";
-import { ControlPanelNav } from "./ControlPanelNav"; // correct relative path
+import { ControlPanelNav } from "./ControlPanelNav";
 
 import { CloudPage } from "./CloudPage";
 import { ComputePage } from "./ComputePage";
@@ -29,11 +29,14 @@ export default function ControlPanelLayout() {
             sidebar={
                 <ControlPanelNav
                     selected={section}
-                    onSelect={setSection}    // setSection expects a Section, no cast needed
+                    onSelect={setSection}
                 />
             }
         >
-            {pages[section]}
+            <div className="bg-panel text-white min-h-screen p-4">
+                {pages[section]}
+            </div>
         </Panel>
     );
+
 }
