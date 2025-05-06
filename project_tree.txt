@@ -50,8 +50,22 @@ Control-Panel/
                 backgrounds/
                     hud-ring-glow.png
                 icons/
-                    icons8-cancel-3d-fluency.zip
-                    icons8-check-mark-3d-fluency.zip
+                    icons8-cancel-375.png
+                    icons8-cancel-94.png
+                    icons8-check-mark-141.png
+                    icons8-check-mark-1500.png
+                    icons8-check-mark-188-2.png
+                    icons8-check-mark-188-3.png
+                    icons8-check-mark-188.png
+                    icons8-check-mark-282-2.png
+                    icons8-check-mark-282.png
+                    icons8-check-mark-375.png
+                    icons8-check-mark-376.png
+                    icons8-check-mark-71.png
+                    icons8-check-mark-750.png
+                    icons8-check-mark-94-2.png
+                    icons8-check-mark-94-3.png
+                    icons8-check-mark-94.png
                     icons8-control-panel-94.png
                     icons8-microchip-94.png
                     icons8-microphone-94 (1).png
@@ -90,118 +104,115 @@ Control-Panel/
                         6106989.eps
                         6106991.jpg
                 svg/
-                    add_box_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    add_box.svg
+                    add_circle.svg
                     archive.svg
-                    arrow_back_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_back_ios_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_back_ios_new_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_circle_down_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_circle_left_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_circle_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_downward_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_forward_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_forward_ios_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    arrow_upward_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    assignment_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    blur_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    bolt_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    arrow_back.svg
+                    arrow_back_ios.svg
+                    arrow_back_ios_new.svg
+                    arrow_circle_down.svg
+                    arrow_circle_left.svg
+                    arrow_circle_right_.svg
+                    arrow_downward_.svg
+                    arrow_forward.svg
+                    arrow_forward_ios.svg
+                    arrow_upward.svg
+                    assignment.svg
+                    blur_on.svg
+                    bolt.svg
                     box-arrow-down.svg
                     box-arrow-up.svg
                     broadcast.svg
-                    check_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    chevron_left_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    chevron_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    check.svg
+                    chevron_left.svg
+                    chevron_right_.svg
                     circuitry.svg
-                    close_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    close.svg
                     cloud-arrow-down.svg
                     cloud-arrow-up.svg
                     cloud-check.svg
                     cloud-slash.svg
                     cloud.svg
-                    cognition_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    cognition.svg
                     columns.svg
                     cpu.svg
-                    dangerous_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    dangerous.svg
                     database.svg
-                    delete_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    done_outline_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    delete.svg
+                    done_outline_.svg
                     download-simple.svg
                     download.svg
-                    ear_sound_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    electric_bolt_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    encrypted_add_circle_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    error_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    expand_circle_down_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    ear_sound.svg
+                    electric_bolt.svg
+                    encrypted_add_circle.svg
+                    error.svg
+                    expand_circle_down.svg
                     file-archive.svg
-                    flash_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    flash_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    flash_off.svg
+                    flash_on.svg
                     floppy-disk-back.svg
                     folder-lock.svg
                     folder-open.svg
                     folder.svg
-                    forward_to_inbox_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    forward_to_inbox_.svg
                     gear.svg
                     graphics-card.svg
                     headset.svg
-                    hearing_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    history_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg
-                    history_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    info_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    keyboard_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    keyboard_hide_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    keyboard_lock_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    keyboard_lock_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    laptop_chromebook_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    left_panel_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    list_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    hearing.svg
+                    history.svg
+                    info.svg
+                    keyboard.svg
+                    keyboard_hide.svg
+                    keyboard_lock4.svg
+                    keyboard_lock_off.svg
+                    laptop_chromebook.svg
+                    left_panel_open.svg
+                    list.svg
                     memory.svg
+                    mic.svg
                     microphone-slash.svg
                     microphone-stage.svg
                     microphone.svg
-                    mic_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    mic_alert_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    mic_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    mode_off_on_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    mouse_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    neurology_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    notifications_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    notifications_off_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    notification_important_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    outbox_alt_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    outgoing_mail_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    mic_alert.svg
+                    mic_off.svg
+                    mode.svg
+                    mouse.svg
+                    neurology.svg
+                    notifications.svg
+                    notifications_off.svg
+                    notification_important_.svg
+                    outbox_alt.svg
+                    outgoing_mail.svg
                     plug.svg
                     plus-circle.svg
-                    priority_high_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    priority_high_.svg
                     puzzle-piece.svg
-                    record_voice_over_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    refresh_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    right_panel_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg
-                    right_panel_open_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    schedule_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    select_to_speak_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    send_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    settings_bluetooth_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    settings_voice_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    share_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    record_voice_over_.svg
+                    refresh_.svg
+                    right_panel_open.svg
+                    schedule_.svg
+                    select_to_speak.svg
+                    send.svg
+                    settings_bluetooth.svg
+                    settings_voice.svg
+                    share.svg
                     sliders-horizontal.svg
                     sliders.svg
-                    speech_to_text_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    speech_to_text.svg
                     stack.svg
-                    storage_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    switch_left_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    switch_right_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    storage.svg
+                    switch_left.svg
+                    switch_right.svg
                     terminal-window.svg
                     terminal.svg
-                    timeline_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
-                    timer_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    timeline.svg
+                    timer.svg
                     toggle-left.svg
                     toggle-right.svg
                     upload-simple.svg
                     upload.svg
                     usb.svg
-                    warning_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24 (1).svg
-                    warning_24dp_1F1F1F_FILL0_wght400_GRAD0_opsz24.svg
+                    warning.svg
                     wifi-high.svg
                     wifi-x.svg
                     wrench.svg
@@ -216,7 +227,6 @@ Control-Panel/
                 MemoryPage.tsx
                 ModelsPage.tsx
                 StatusPage.tsx
-                topControlBar.jsx
                 TopControlBar.tsx
             hooks/
                 useConfig.ts
@@ -227,6 +237,7 @@ Control-Panel/
     scripts/
         add_headers.py
         generate_tree.py
+        remove_json_headers.py
     task_engine/
         log.txt
         task_library.py

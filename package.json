@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@headlessui/react": "^2.2.2"
+  },
+  "devDependencies": {
+    "vite-plugin-svgr": "^4.3.0"
   }
 }

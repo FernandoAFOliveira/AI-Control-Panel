@@ -3,15 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* src/index.css */
-body,
-html,
-#root {
-    background-color: #0B1120;
-    /* same dark as your bg */
-    color: white;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}

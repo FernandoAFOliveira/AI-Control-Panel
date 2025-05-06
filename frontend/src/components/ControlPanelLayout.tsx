@@ -10,8 +10,8 @@ import TopControlBar from "./TopControlBar";
 
 type Section = "Status" | "Compute" | "Models" | "Cloud" | "Logs" | "Memory";
 
-export default function ControlPanelLayout() {
-    const [section, setSection] = useState<Section>("Status");
+export function ControlPanelLayout() {
+    const [section, _setSection] = useState<Section>("Status");
     const [showSettings, setShowSettings] = useState(false);
 
     const pages: Record<Section, React.ReactNode> = {
