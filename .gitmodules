@@ -1,0 +1,3 @@
+[submodule "memory_services/mcp-mem0"]
+	path = memory_services/mcp-mem0
+	url = https://github.com/coleam00/mcp-mem0.git
