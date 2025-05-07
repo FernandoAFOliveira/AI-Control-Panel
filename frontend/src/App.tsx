@@ -1,11 +1,22 @@
-// src/App.tsx
-function App() {
+export default function App() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen text-white">
-      <p>If you see a red box, Tailwind is working.</p>
-      <div className="bg-red-500 w-32 h-32 mt-4 border-4 border-white"></div> {/* Red box */}
+    <div style={{
+      backgroundColor: 'black',
+      color: 'white',
+      height: '100vh',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}>
+      <p>If you see this, React is rendering.</p>
+      <div style={{
+        backgroundColor: 'red',
+        width: '128px',
+        height: '128px',
+        marginTop: '1rem',
+        border: '4px solid white',
+      }}></div>
     </div>
   );
 }
-
-export default App;

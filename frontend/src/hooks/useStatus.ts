@@ -1,4 +1,3 @@
-// frontend/src/hooks/useStatus.ts
 import { useEffect, useState } from "react";
 
 export interface Status {
@@ -13,16 +12,26 @@ export const useStatus = (interval = 2000) => {
 
   useEffect(() => {
     let timer: NodeJS.Timeout;
+
     async function fetchStatus() {
       try {
         const res = await fetch("/api/status");
-        setStatus(await res.json());
+
+        if (!res.ok) {
+          const text = await res.text();
+          console.warn(`⚠️ /api/status returned ${res.status}:`, text);
+          return; // <- Prevent crashing on 404/401/etc
+        }
+
+        const data = await res.json();
+        setStatus(data);
       } catch (err) {
-        console.error("status poll failed", err);
+        console.error("🔥 Failed to fetch status", err);
       } finally {
         timer = setTimeout(fetchStatus, interval);
       }
     }
+
     fetchStatus();
     return () => clearTimeout(timer);
   }, [interval]);

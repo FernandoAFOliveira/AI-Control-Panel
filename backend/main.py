@@ -19,6 +19,12 @@ app.add_middleware(
 app.include_router(system.router)
 app.include_router(logs_router)# or include_router(..., prefix="/api")
 
-@app.get("/")
-def read_root():
-    return {"message": "Control Panel Backend is running"}
+@app.get("/api/status")
+def get_status():
+    return {
+        "ai_model": "ready",
+        "task_engine": "idle",
+        "cpu": 0.0,
+        "ram": 37.0
+    }
+
