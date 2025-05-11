@@ -1,0 +1,13 @@
+# core model libraries
+chromadb==0.4.24
+llama-index-core==0.10.25
+llama-index-readers-file==0.1.8
+llama-index-vector-stores-chroma==0.1.9
+llama-index-llms-ollama==0.1.5
+llama-index-embeddings-ollama==0.1.3
+
+# database if you log actions
+sqlalchemy==2.0.28  
+
+# load secrets from .env
+python-dotenv

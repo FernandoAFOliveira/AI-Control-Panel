@@ -21,6 +21,7 @@ Control-Panel/
         task_monitor.py
         utils.py
         task_queue.txt
+        requirements.txt
         log.txt
     archive/
     frontend/
@@ -39,8 +40,11 @@ Control-Panel/
             vite.svg
         src/
             vite-env.d.ts
+            ConfigPage.tsx
             index.css
             App.tsx
+            Nav.tsx
+            LogsPage.tsx
             main.tsx
             assets/
                 react.svg
@@ -242,6 +246,7 @@ Control-Panel/
         task_result.json
         utils.py
         status_report.json
+        requirements.txt
         generate_actions_json.py
     scripts/
         add_headers.py
@@ -250,32 +255,21 @@ Control-Panel/
         generate_tree.py
     memory_services/
         mcp-mem0/
-            pyproject.toml
-            uv.lock
-            LICENSE
-            Dockerfile
-            .git
-            .dockerignore
-            public/
-                Mem0AndMCP.png
             src/
-                utils.py
-                main.py
                 mem0_mcp.egg-info/
                     top_level.txt
                     SOURCES.txt
                     dependency_links.txt
                     PKG-INFO
                     requires.txt
-            build/
-                lib/
-                    utils.py
-                    main.py
-                bdist.linux-x86_64/
     backend/
+        Dockerfile
+        requirements.txt
         main.py
         routers/
             logs.py
             system.py
+    .continue/
+        config.yaml
     docs/
         AI-Assistant-Control-Panel.md

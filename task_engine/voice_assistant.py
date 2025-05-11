@@ -5,18 +5,24 @@ and supports ESC-interruptible speech output.
 
 import os
 import sys
-import re
-import json
-import subprocess
-import threading
-import msvcrt
-import speech_recognition as sr
-import pyttsx3
-import requests
 # Control-Panel/ai_model/model_console.py
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 from ai_model.model_api import query_ollama
 from task_engine.utils import is_within_workspace, load_settings
+import re
+import json
+import subprocess
+import threading
+import time
+import select
+import pyttsx3
+import speech_recognition as sr
+import requests
+
+speaker = pyttsx3.init()
+speaker.setProperty('rate', 150)
+
+
 
 TASK_FILE = "task_engine/task_queue.txt"
 RESULT_FILE = "ai_model/task_result.json"
@@ -87,10 +93,14 @@ def speak_with_interrupt(text):
     print("🔈 Speaking... Press ESC to interrupt.")
 
     while thread.is_alive():
-        if msvcrt.kbhit() and msvcrt.getch() == b'\x1b':  # ESC key
-            speaker.stop()
-            print("🛑 Speech interrupted.")
-            break
+        # wait up to 0.1s for input on stdin
+        dr, _, _ = select.select([sys.stdin], [], [], 0.1)
+        if dr:
+            ch = sys.stdin.read(1)
+            if ch == '\x1b':      # ESC
+                speaker.stop()
+                print("🛑 Speech interrupted.")
+                break
 
 
 print("Voice Assistant is ready. Speak a task or instruction.")
@@ -160,4 +170,3 @@ while True:
         print(f"Could not request results; {req_err}")
     except sr.WaitTimeoutError:
         print("Listening timed out.")
-

@@ -1,0 +1,15 @@
+# task_engine/requirements.txt
+
+# — voice assistant
+SpeechRecognition==3.14.2
+pyttsx3==2.98
+PyAudio==0.2.14
+
+# — executor & task monitor
+click          # if you use CLI commands
+httpx          # for any HTTP callbacks
+psutil         # if you inspect or kill processes
+python-dotenv  # loading .env
+numpy>=1.26    # shared utility
+
+# any other imports you see in task_engine/*.py

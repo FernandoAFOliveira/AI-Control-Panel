@@ -43,4 +43,3 @@ def is_within_workspace(path: str | Path) -> bool:
         return Path(path).resolve().is_relative_to(ws)
     except AttributeError:
         return str(Path(path).resolve()).startswith(str(ws))
-

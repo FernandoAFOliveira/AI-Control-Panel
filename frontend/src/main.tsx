@@ -1,10 +1,15 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+// Control-Panel/frontend/src/main.tsx
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { App as StatusPage } from './App'
+import { ConfigPage } from './ConfigPage'
+import { LogsPage } from './LogsPage'
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+ReactDOM.createRoot(...).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<StatusPage />} />
+      <Route path="/config" element={<ConfigPage />} />
+      <Route path="/logs" element={<LogsPage />} />
+    </Routes>
+  </BrowserRouter>
 )
