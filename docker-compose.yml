@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  postgres:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: mem0
+      POSTGRES_PASSWORD: mem0pass
+      POSTGRES_DB: mem0db
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    command: >
+      bash -c "
+        apt-get update &&
+        apt-get install -y postgresql-server-dev-15 build-essential &&
+        git clone https://github.com/pgvector/pgvector.git /tmp/pgvector &&
+        cd /tmp/pgvector &&
+        make install &&
+        docker-entrypoint.sh postgres
+      "
+
+volumes:
+  pgdata:

@@ -1,8 +1,6 @@
 {
   "dependencies": {
-    "@headlessui/react": "^2.2.2"
-  },
-  "devDependencies": {
-    "vite-plugin-svgr": "^4.3.0"
+    "@headlessui/react": "^2.2.2",
+    "mem0ai": "^2.1.24"
   }
 }

@@ -1,0 +1,48 @@
+@base = http://localhost:8050
+@headers = 
+  Accept: text/event-stream
+  Content-Type: application/json
+
+### 1) Open an SSE session to get your session‑ID
+GET {{base}}/sse
+{{headers}}
+
+### 2) Initialize (once per session)
+POST {{base}}/messages/?session_id=<copy‑the‑ID‑from‑the‑endpoint‑response‑above>
+{{headers}}
+
+{
+  "jsonrpc": "2.0",
+  "id": 1,
+  "method": "initialize",
+  "params": {
+    "protocolVersion": "1.0",
+    "clientInfo": { "name": "vscode-rest", "version": "1.0" },
+    "capabilities": {}
+  }
+}
+
+### 3) List all tools
+POST {{base}}/messages/?session_id=<same‑session‑id>
+{{headers}}
+
+{
+  "jsonrpc": "2.0",
+  "id": 2,
+  "method": "tools/list",
+  "params": {}
+}
+
+### 4) Call the memory tool
+POST {{base}}/messages/?session_id=<same‑session‑id>
+{{headers}}
+
+{
+  "jsonrpc": "2.0",
+  "id": 3,
+  "method": "tools/call",
+  "params": {
+    "name": "save_memory",
+    "input": "I love pickles."
+  }
+}
