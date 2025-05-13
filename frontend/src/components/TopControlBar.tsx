@@ -11,6 +11,8 @@ import WifiOn from "../assets/svg/wifi.svg?react";
 import { Nav } from "../Nav";
 import type { Section } from "../types";
 
+console.log("✅ Loaded TopControlBar.tsx");
+
 export interface TopControlBarProps {
   current: Section;
   onSectionChange(s: Section): void;
@@ -39,50 +41,49 @@ export default function TopControlBar({
   onSettingsToggle,
 }: TopControlBarProps) {
   //
-  // base pill: padding, border, transparent bg, transition
+  // button base: padding, border, transparent bg, transition
   //
-  const btnBase = `
-    flex flex-col items-center justify-center
-    px-4 py-2 rounded-lg    /* softer corners */
-    border-2 bg-transparent
-    transition
-  `;
+const btnBase = 'flex flex-col items-center justify-center px-4 py-2 rounded-lg border-2 bg-transparent transition';
 
-  const idle   = "border-blue-300 text-white/70";
-  const hover  = "hover:border-blue-400 hover:text-white hover:shadow-[0_0_8px_rgba(59,130,246,0.5)]";
-  const active = "border-blue-500 text-white bg-black/40 shadow-[0_0_12px_rgba(59,130,246,0.75)]";
+// when OFF (idle)  
+const idle   = 'border-blue-400 text-white/70';
+// on hover
+const hover  = 'hover:border-blue-400 hover:text-white hover:shadow-[0_0_8px_rgba(59,130,246,0.5)]';
+// when ON (active)
+const active = 'border-blue-400 text-white bg-black/40 shadow-[0_0_12px_rgba(59,130,246,0.75)]';
 
   // helper to pick the right combo
-  const classes = (on: boolean) =>
-    `${btnBase} ${on ? active : `${idle} ${hover}`}`;
+function classes(isOn: boolean) {
+  return [btnBase, isOn ? active : `${idle} ${hover}`].join(' ');
+}
 
   return (
     <header className="border-b border-gray-700">
       {/* ICON ROW */}
-      <div className="flex items-center justify-between px-4 py-2">
+      <div className="flex items-center justify-between px-4 py-2 mb-2">
         <div className="flex space-x-4">
           {/* Voice */}
           <button className={classes(voiceOn)} onClick={onVoiceToggle}>
-            {voiceOn ? (
-              <MicOn  className="w-6 h-6 fill-current" />
-            ) : (
-              <MicOff className="w-6 h-6 fill-current" />
-            )}
-            <span className="text-xs mt-1"> {voiceOn ? "Voice On" : "Voice Off"} </span>
+            {voiceOn
+              ? <MicOn  className="w-6 h-6 fill-current stroke-current" />
+              : <MicOff className="w-6 h-6 fill-current stroke-current" />}
+            <span className="text-xs mt-1 select-none">
+              {voiceOn ? 'Voice On' : 'Voice Off'}
+            </span>
           </button>
 
           {/* Local LLM */}
           <button className={classes(useLocal)} onClick={onLocalToggle}>
-            <CpuIcon className="w-6 h-6 fill-current" />
+            <CpuIcon className="w-6 h-6 fill-current stroke-current" />
             <span className="text-xs mt-1"> {useLocal ? "Local LLM" : "No Local"} </span>
           </button>
 
           {/* Cloud AI */}
           <button className={classes(useCloud)} onClick={onCloudToggle}>
             {useCloud ? (
-              <CloudOn  className="w-6 h-6 fill-current" />
+              <CloudOn  className="w-6 h-6 fill-current stroke-current" />
             ) : (
-              <CloudOff className="w-6 h-6 fill-current" />
+              <CloudOff className="w-6 h-6 fill-current stroke-current" />
             )}
             <span className="text-xs mt-1"> {useCloud ? "Cloud AI" : "No Cloud"} </span>
           </button>
@@ -90,9 +91,9 @@ export default function TopControlBar({
           {/* Online/Offline */}
           <button className={classes(offline)} onClick={onOfflineToggle}>
             {offline ? (
-              <WifiOff className="w-6 h-6 fill-current" />
+              <WifiOff className="w-6 h-6 fill-current stroke-current" />
             ) : (
-              <WifiOn  className="w-6 h-6 fill-current" />
+              <WifiOn  className="w-6 h-6 fill-current stroke-current" />
             )}
             <span className="text-xs mt-1"> {offline ? "Offline" : "Online"} </span>
           </button>
@@ -100,7 +101,7 @@ export default function TopControlBar({
 
         {/* Settings gear */}
         <button className={`${btnBase} ${idle} ${hover}`} onClick={onSettingsToggle}>
-          <Gear className="w-6 h-6 fill-current" />
+          <Gear className="w-6 h-6 fill-current stroke-current" />
           <span className="text-xs mt-1">Settings</span>
         </button>
       </div>

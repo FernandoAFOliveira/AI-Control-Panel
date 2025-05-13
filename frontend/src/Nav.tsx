@@ -1,6 +1,8 @@
 // src/Nav.tsx
 import type { Section } from "./types";
 
+console.log("✅ Loaded Nav.tsx");
+
 export function Nav({
   current,
   onChange,
@@ -19,13 +21,14 @@ export function Nav({
           key={s}
           onClick={() => onChange(s)}
           className={`
-            px-5 py-2 rounded-full   /* full pill */
+            px-5 py-2 
+            rounded-full
             border-2 border-blue-400
-            bg-transparent
+            bg-transparent text-white
             transition
             ${s === current
-              ? "shadow-[0_0_12px_rgba(59,130,246,0.85)] text-white"
-              : "hover:shadow-[0_0_8px_rgba(59,130,246,0.5)] text-white/70 hover:text-white"
+              ? 'shadow-[0_0_12px_rgba(59,130,246,0.85)]'
+               : 'hover:shadow-[0_0_8px_rgba(59,130,246,0.5)]'
             }
           `}
         >
