@@ -1,26 +1,31 @@
 // src/Nav.tsx
 import type { Section } from "./types";
 
-export function Nav({ current, onChange }: {
+export function Nav({
+  current,
+  onChange,
+}: {
   current: Section;
-  onChange(newSection: Section): void;
+  onChange: (s: Section) => void;
 }) {
-  const sections: Section[] = ["Status","Compute","Models","Cloud","Logs","Memory"];
+  const sections: Section[] = [
+    "Status", "Compute", "Models", "Cloud", "Logs", "Memory",
+  ];
 
   return (
     <nav className="flex justify-center space-x-4 py-3 border-b border-blue-700">
-      {sections.map(s => (
+      {sections.map((s) => (
         <button
           key={s}
           onClick={() => onChange(s)}
           className={`
-            px-5 py-2 rounded-full
+            px-5 py-2 rounded-full   /* full pill */
             border-2 border-blue-400
-            bg-transparent text-white
+            bg-transparent
             transition
             ${s === current
-              ? "shadow-[0_0_12px_rgba(59,130,246,0.85)]"
-              : "hover:shadow-[0_0_8px_rgba(59,130,246,0.5)]"
+              ? "shadow-[0_0_12px_rgba(59,130,246,0.85)] text-white"
+              : "hover:shadow-[0_0_8px_rgba(59,130,246,0.5)] text-white/70 hover:text-white"
             }
           `}
         >

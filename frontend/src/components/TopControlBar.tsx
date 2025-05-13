@@ -11,6 +11,25 @@ import WifiOn from "../assets/svg/wifi.svg?react";
 import { Nav } from "../Nav";
 import type { Section } from "../types";
 
+export interface TopControlBarProps {
+  current: Section;
+  onSectionChange(s: Section): void;
+
+  voiceOn: boolean;
+  onVoiceToggle(): void;
+
+  useLocal: boolean;
+  onLocalToggle(): void;
+
+  useCloud: boolean;
+  onCloudToggle(): void;
+
+  offline: boolean;
+  onOfflineToggle(): void;
+
+  onSettingsToggle(): void;
+}
+
 export default function TopControlBar({
   current, onSectionChange,
   voiceOn, onVoiceToggle,
@@ -18,19 +37,14 @@ export default function TopControlBar({
   useCloud, onCloudToggle,
   offline, onOfflineToggle,
   onSettingsToggle,
-}: {
-  current: Section;
-  onSectionChange(s: Section): void;
-  voiceOn: boolean;   onVoiceToggle(): void;
-  useLocal: boolean;  onLocalToggle(): void;
-  useCloud: boolean;  onCloudToggle(): void;
-  offline: boolean;   onOfflineToggle(): void;
-  onSettingsToggle(): void;
-}) {
+}: TopControlBarProps) {
+  //
+  // base pill: padding, border, transparent bg, transition
+  //
   const btnBase = `
     flex flex-col items-center justify-center
-    px-4 py-2 rounded-lg
-    border-2 bg-transparent text-white
+    px-4 py-2 rounded-lg    /* softer corners */
+    border-2 bg-transparent
     transition
   `;
 
@@ -38,47 +52,61 @@ export default function TopControlBar({
   const hover  = "hover:border-blue-400 hover:text-white hover:shadow-[0_0_8px_rgba(59,130,246,0.5)]";
   const active = "border-blue-500 text-white bg-black/40 shadow-[0_0_12px_rgba(59,130,246,0.75)]";
 
+  // helper to pick the right combo
   const classes = (on: boolean) =>
     `${btnBase} ${on ? active : `${idle} ${hover}`}`;
 
   return (
-    <header className="border-b border-gray-700 px-4">
-      <div className="flex items-center justify-between py-2 mb-2">
+    <header className="border-b border-gray-700">
+      {/* ICON ROW */}
+      <div className="flex items-center justify-between px-4 py-2">
         <div className="flex space-x-4">
+          {/* Voice */}
           <button className={classes(voiceOn)} onClick={onVoiceToggle}>
-            {voiceOn
-              ? <MicOn  className="w-6 h-6 text-white"/>
-              : <MicOff className="w-6 h-6 text-white"/>}
-            <span className="text-xs mt-1">{voiceOn ? "Voice On" : "Voice Off"}</span>
+            {voiceOn ? (
+              <MicOn  className="w-6 h-6 fill-current" />
+            ) : (
+              <MicOff className="w-6 h-6 fill-current" />
+            )}
+            <span className="text-xs mt-1"> {voiceOn ? "Voice On" : "Voice Off"} </span>
           </button>
 
+          {/* Local LLM */}
           <button className={classes(useLocal)} onClick={onLocalToggle}>
-            <CpuIcon className="w-6 h-6 text-white"/>
-            <span className="text-xs mt-1">{useLocal ? "Local LLM" : "No Local"}</span>
+            <CpuIcon className="w-6 h-6 fill-current" />
+            <span className="text-xs mt-1"> {useLocal ? "Local LLM" : "No Local"} </span>
           </button>
 
+          {/* Cloud AI */}
           <button className={classes(useCloud)} onClick={onCloudToggle}>
-            {useCloud
-              ? <CloudOn  className="w-6 h-6 text-white"/>
-              : <CloudOff className="w-6 h-6 text-white"/>}
-            <span className="text-xs mt-1">{useCloud ? "Cloud AI" : "No Cloud"}</span>
+            {useCloud ? (
+              <CloudOn  className="w-6 h-6 fill-current" />
+            ) : (
+              <CloudOff className="w-6 h-6 fill-current" />
+            )}
+            <span className="text-xs mt-1"> {useCloud ? "Cloud AI" : "No Cloud"} </span>
           </button>
 
+          {/* Online/Offline */}
           <button className={classes(offline)} onClick={onOfflineToggle}>
-            {offline
-              ? <WifiOff className="w-6 h-6 text-white"/>
-              : <WifiOn  className="w-6 h-6 text-white"/>}
-            <span className="text-xs mt-1">{offline ? "Offline" : "Online"}</span>
+            {offline ? (
+              <WifiOff className="w-6 h-6 fill-current" />
+            ) : (
+              <WifiOn  className="w-6 h-6 fill-current" />
+            )}
+            <span className="text-xs mt-1"> {offline ? "Offline" : "Online"} </span>
           </button>
         </div>
 
+        {/* Settings gear */}
         <button className={`${btnBase} ${idle} ${hover}`} onClick={onSettingsToggle}>
-          <Gear className="w-6 h-6 text-white"/>
+          <Gear className="w-6 h-6 fill-current" />
           <span className="text-xs mt-1">Settings</span>
         </button>
       </div>
 
-      <Nav current={current} onChange={onSectionChange}/>
+      {/* TAB ROW */}
+      <Nav current={current} onChange={onSectionChange} />
     </header>
   );
 }
