@@ -1,61 +1,39 @@
 // frontend/src/components/ComputePage.tsx
-import { useEffect, useState } from "react";
-
-type Config = {
-    compute_profile: string;
-    // (you can add the other fields here if you like)
-};
+import { useState, type ChangeEvent } from "react";
+import { useConfig, type Config } from "../hooks/useConfig";
 
 export function ComputePage() {
-    const [config, setConfig] = useState<Config | null>(null);
-    const [updating, setUpdating] = useState(false);
+  const { config, update } = useConfig();
+  const [updating, setUpdating] = useState(false);
 
-    // 1️⃣ Fetch via the Vite proxy
-    useEffect(() => {
-        fetch("/api/config")
-            .then((r) => r.json())
-            .then(setConfig)
-            .catch(console.error);
-    }, []);
+  if (!config) return <p>Loading compute settings…</p>;
 
-    // 2️⃣ PATCH via the proxy too
-    const handleChange = async (newProfile: string) => {
-        if (!config) return;
-        setUpdating(true);
+  const profiles: Config["compute_profile"][] = ["small", "medium", "large"];
 
-        try {
-            await fetch("/api/config", {
-                method: "PATCH",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ compute_profile: newProfile }),
-            });
-            // locally update the select immediately
-            setConfig({ ...config, compute_profile: newProfile });
-        } catch (err) {
-            console.error(err);
-            // you could also show an error message to the user here
-        } finally {
-            setUpdating(false);
-        }
-    };
+  const handleChange = async (e: ChangeEvent<HTMLSelectElement>) => {
+    setUpdating(true);
+    await update({ compute_profile: e.target.value });
+    setUpdating(false);
+  };
 
-    if (!config) return <p>Loading config…</p>;
-
-    return (
-        <section>
-            <h2>Compute Profile</h2>
-            <label style={{ display: "block", margin: "12px 0" }}>
-                <select
-                    value={config.compute_profile}
-                    disabled={updating}
-                    onChange={(e) => handleChange(e.target.value)}
-                >
-                    <option value="eco">eco</option>
-                    <option value="balanced">balanced</option>
-                    <option value="performance">performance</option>
-                </select>
-            </label>
-            {updating && <p>⏳ Applying…</p>}
-        </section>
-    );
+  return (
+    <section>
+      <h2>Compute Profile</h2>
+      <label className="block my-3">
+        <select
+          value={config.compute_profile}
+          disabled={updating}
+          onChange={handleChange}
+          className="ml-2 p-1 bg-gray-800 border border-gray-600"
+        >
+          {profiles.map((p) => (
+            <option key={p} value={p}>
+              {p}
+            </option>
+          ))}
+        </select>
+      </label>
+      {updating && <p>⏳ Applying compute profile…</p>}
+    </section>
+  );
 }

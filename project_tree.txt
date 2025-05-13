@@ -38,13 +38,18 @@ Control-Panel/
         eslint.config.js
         public/
             vite.svg
+            images/
+                backgrounds/
+                    hud-ring-glow.png
+                    blue-futuristic.jpg
+                icons/
         src/
             vite-env.d.ts
-            ConfigPage.tsx
+            svg.d.ts
             index.css
             App.tsx
             Nav.tsx
-            LogsPage.tsx
+            types.ts
             main.tsx
             assets/
                 react.svg
@@ -98,6 +103,7 @@ Control-Panel/
                     cpu.svg
                     add_circle.svg
                     electric_bolt.svg
+                    network.svg
                     mic_alert.svg
                     keyboard_lock4.svg
                     record_voice_over_.svg
@@ -109,7 +115,6 @@ Control-Panel/
                     arrow_downward_.svg
                     left_panel_open.svg
                     blur_on.svg
-                    wifi-high.svg
                     schedule_.svg
                     arrow_circle_right_.svg
                     forward_to_inbox_.svg
@@ -121,6 +126,7 @@ Control-Panel/
                     file-archive.svg
                     arrow_back_ios.svg
                     send.svg
+                    network-off.svg
                     switch_left.svg
                     speech_to_text.svg
                     toggle-right.svg
@@ -139,6 +145,7 @@ Control-Panel/
                     graphics-card.svg
                     chevron_left.svg
                     info.svg
+                    wifi.svg
                     puzzle-piece.svg
                     select_to_speak.svg
                     timer.svg
@@ -190,7 +197,6 @@ Control-Panel/
                     cloud-slash.svg
                     outgoing_mail.svg
                 backgrounds/
-                    hud-ring-glow.png
                 icons/
                     icons8-microchip-94.png
                     icons8-check-mark-94-2.png
@@ -219,24 +225,20 @@ Control-Panel/
                     icons8-cancel-375.png
                     icons8-check-mark-94.png
             components/
-                BackgroundPanel.tsx
                 ComputePage.tsx
                 ControlPanelLayout.tsx
-                ControlPanel.tsx
+                ConfigPage.tsx
                 StatusPage.tsx
                 ModelsPage.tsx
                 LogsPage.tsx
-                ControlPanelNav.tsx
                 MemoryPage.tsx
                 CloudPage.tsx
                 TopControlBar.tsx
-                topControlBar.jsx
             hooks/
                 useConfig.ts
                 useStatus.ts
                 useLogs.ts
             layout/
-                Panel.tsx
     ai_model/
         model_api.py
         secrets.py

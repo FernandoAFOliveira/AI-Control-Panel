@@ -24,8 +24,12 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
+  "extends": "./tsconfig.json",
   "include": [
-    "src",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts",
     "vite-env.d.ts"
-  ]
+, "../archive/Panel.tsx"  ],
+  "exclude": ["node_modules", "dist"]
 }
