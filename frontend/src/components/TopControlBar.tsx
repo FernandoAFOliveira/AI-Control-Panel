@@ -43,14 +43,16 @@ export default function TopControlBar({
   //
   // button base: padding, border, transparent bg, transition
   //
-const btnBase = 'flex flex-col items-center justify-center px-4 py-2 rounded-lg border-2 bg-transparent transition';
+const btnBase = 'flex flex-col items-center justify-center px-5 py-3 rounded-[12px] border-2 bg-transparent transition'; // Adjusted padding
 
 // when OFF (idle)  
-const idle   = 'border-blue-400 text-white/70';
+const idle = 'border-blue-400 text-blue-300';
 // on hover
 const hover  = 'hover:border-blue-400 hover:text-white hover:shadow-[0_0_8px_rgba(59,130,246,0.5)]';
 // when ON (active)
-const active = 'border-blue-400 text-white bg-black/40 shadow-[0_0_12px_rgba(59,130,246,0.75)]';
+const active = 'border-blue-400 text-white shadow-[0_0_12px_rgba(59,130,246,0.75)]';
+
+const settingsButtonIdle = 'border-sky-500 text-sky-300'; // Matching the general idle
 
   // helper to pick the right combo
 function classes(isOn: boolean) {
@@ -63,46 +65,46 @@ function classes(isOn: boolean) {
       <div className="flex items-center justify-between px-4 py-2 mb-2">
         <div className="flex space-x-4">
           {/* Voice */}
-          <button className={classes(voiceOn)} onClick={onVoiceToggle}>
-            {voiceOn
-              ? <MicOn  className="w-6 h-6 fill-current stroke-current" />
-              : <MicOff className="w-6 h-6 fill-current stroke-current" />}
-            <span className="text-xs mt-1 select-none">
-              {voiceOn ? 'Voice On' : 'Voice Off'}
-            </span>
-          </button>
+        <button className={classes(voiceOn)} onClick={onVoiceToggle}>
+          {voiceOn
+            ? <MicOn  className="w-7 h-7 fill-current stroke-current" /> // Slightly larger icon
+            : <MicOff className="w-7 h-7 fill-current stroke-current" />}
+          <span className="text-sm mt-1 select-none"> {/* Larger text */}
+            {voiceOn ? 'Voice On' : 'Voice Off'}
+          </span>
+        </button>
 
           {/* Local LLM */}
           <button className={classes(useLocal)} onClick={onLocalToggle}>
-            <CpuIcon className="w-6 h-6 fill-current stroke-current" />
-            <span className="text-xs mt-1"> {useLocal ? "Local LLM" : "No Local"} </span>
+            <CpuIcon className="w-7 h-7 fill-current stroke-current" />
+            <span className="text-sm mt-1"> {useLocal ? "Local LLM" : "No Local"} </span>
           </button>
 
           {/* Cloud AI */}
           <button className={classes(useCloud)} onClick={onCloudToggle}>
             {useCloud ? (
-              <CloudOn  className="w-6 h-6 fill-current stroke-current" />
+              <CloudOn  className="w-7 h-7 fill-current stroke-current" />
             ) : (
-              <CloudOff className="w-6 h-6 fill-current stroke-current" />
+              <CloudOff className="w-7 h-7 fill-current stroke-current" />
             )}
-            <span className="text-xs mt-1"> {useCloud ? "Cloud AI" : "No Cloud"} </span>
+            <span className="text-sm mt-1"> {useCloud ? "Cloud AI" : "No Cloud"} </span>
           </button>
 
           {/* Online/Offline */}
           <button className={classes(offline)} onClick={onOfflineToggle}>
             {offline ? (
-              <WifiOff className="w-6 h-6 fill-current stroke-current" />
+              <WifiOff className="w-7 h-7 fill-current stroke-current" />
             ) : (
-              <WifiOn  className="w-6 h-6 fill-current stroke-current" />
+              <WifiOn  className="w-7 h-7 fill-current stroke-current" />
             )}
-            <span className="text-xs mt-1"> {offline ? "Offline" : "Online"} </span>
+            <span className="text-sm mt-1"> {offline ? "Offline" : "Online"} </span>
           </button>
         </div>
 
         {/* Settings gear */}
-        <button className={`${btnBase} ${idle} ${hover}`} onClick={onSettingsToggle}>
-          <Gear className="w-6 h-6 fill-current stroke-current" />
-          <span className="text-xs mt-1">Settings</span>
+        <button className={`${btnBase} ${settingsButtonIdle} ${hover}`} onClick={onSettingsToggle}>
+          <Gear className="w-7 h-7 fill-current stroke-current" /> {/* Ensure fill-current for consistency */}
+          <span className="text-sm mt-1">Settings</span>
         </button>
       </div>
 

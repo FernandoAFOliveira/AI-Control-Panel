@@ -57,9 +57,9 @@ export default function ControlPanelLayout() {
 
       <div className="flex flex-1 overflow-hidden">
         {showSettings && (
-          <aside className="w-64 bg-[#1f2937] p-4 overflow-y-auto border-r border-gray-800">
-            <h2 className="text-lg font-semibold mb-4">Settings</h2>
-            <ul className="space-y-2 text-sm">
+          <aside className="w-64 bg-[#1f2937] p-4 overflow-y-auto border-r border-gray-800 text-gray-300"> {/* Added text-gray-300 or text-white */}
+            <h2 className="text-lg font-semibold mb-4 text-gray-100">Settings</h2> {/* Brighter for heading */}
+            <ul className="space-y-2 text-sm"> {/* Inherits text-gray-300 */}
               <li>Memory location</li>
               <li>Plugins</li>
               <li>Voice options</li>
@@ -67,7 +67,7 @@ export default function ControlPanelLayout() {
           </aside>
         )}
 
-        <main className="relative flex-1 p-6 overflow-auto">
+        <main className="relative flex-1 p-6 overflow-auto text-gray-200"> {/* Default light text for main content */}
           <div className="relative z-10">
             {pages[section]}
           </div>

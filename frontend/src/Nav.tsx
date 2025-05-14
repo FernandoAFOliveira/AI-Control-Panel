@@ -21,14 +21,12 @@ export function Nav({
           key={s}
           onClick={() => onChange(s)}
           className={`
-            px-5 py-2 
+            px-6 py-3 text-sm // Added text-sm, adjusted padding
             rounded-full
-            border-2 border-blue-400
-            bg-transparent text-white
             transition
             ${s === current
-              ? 'shadow-[0_0_12px_rgba(59,130,246,0.85)]'
-               : 'hover:shadow-[0_0_8px_rgba(59,130,246,0.5)]'
+              ? 'border-sky-300 text-white shadow-[0_0_12px_rgba(125,211,252,0.85)] bg-sky-700/50' // Active: White text, lighter border, distinct background tint & glow
+              : 'border-sky-600 text-sky-400 hover:text-sky-200 hover:border-sky-400 hover:shadow-[0_0_8px_rgba(125,211,252,0.5)]' // Idle: Sky blue text & border. Hover: Lighter text/border & glow
             }
           `}
         >
