@@ -8,8 +8,8 @@ import MicOn from "../assets/svg/microphone.svg?react";
 import WifiOff from "../assets/svg/wifi-x.svg?react";
 import WifiOn from "../assets/svg/wifi.svg?react";
 
-import { Nav } from "../Nav"; // Assuming Nav.tsx is in src/, adjust if it's in src/components/
-import type { Section } from "../types"; // Ensure this path is correct
+import { Nav } from "../Nav";
+import type { Section } from "../types";
 
 console.log("✅ Loaded TopControlBar.tsx");
 
@@ -36,40 +36,44 @@ export default function TopControlBar({
   onSettingsToggle,
 }: TopControlBarProps) {
 
-  const iconSize = "w-6 h-6"; // Icon size (1.5rem) - you can make this w-7 h-7 if preferred
-  const textSize = "text-xs";  // Text size below icons (0.75rem)
+  // Responsive sizes: Base -> sm -> lg
+  const iconSize = "w-5 h-5 sm:w-6 sm:h-6 lg:w-7 lg:h-7"; 
+  const textSize = "text-[10px] sm:text-xs lg:text-sm"; 
 
-  // Base styles for all top icon buttons
   const btnBase = `
     flex flex-col items-center justify-center
-    p-2                             /* Padding inside the button */
-    min-w-[70px] min-h-[70px]       /* Minimum size for better touch targets */
-    border-2 bg-transparent         /* Transparent background, 2px border */
-    rounded-[10px]                  /* Rounded corners */
-    transition-all duration-200 ease-in-out /* Smooth transitions */
-    focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-slate-900 focus:ring-sky-400 /* Accessibility focus */
+    p-1.5 sm:p-2                      /* Responsive padding */
+    m-0.5 sm:m-1                      /* Responsive margin for spacing */
+    min-w-[60px] min-h-[60px]         /* Base minimum size */
+    sm:min-w-[65px] sm:min-h-[65px]   /* Min size on sm+ screens */
+    lg:min-w-[75px] lg:min-h-[75px]   /* Min size on lg+ screens */
+    border-2 bg-transparent
+    rounded-[10px]                    /* Rounded corners */
+    text-white                        /* Default to white text/icons */
+    transition-all duration-150 ease-in-out
+    focus:outline-none
+    focus-visible:ring-2 focus-visible:ring-sky-400 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-900
   `;
 
-  // Styles for when a button is INACTIVE (off) - Light blue border, light blue text, no glow
   const idleState = `
-    border-sky-500                  /* Light blue border (e.g., Tailwind's sky-500) */
-    text-sky-300                    /* Light blue text/icon (e.g., Tailwind's sky-300) */
-    shadow-none                     /* Explicitly no shadow for idle state */
+    border-sky-500                  
+    text-sky-300                    
+    shadow-none                     
   `;
 
-  // Styles for when hovering over ANY button (active or inactive) - Add glow, brighter border/text
   const hoverEffect = `
-    hover:border-sky-300            /* Brighter light blue border on hover */
-    hover:text-white                /* White text/icon on hover for contrast */
-    hover:shadow-[0_0_10px_2px_rgba(56,189,248,0.5)] /* Sky-400 at 50% opacity for glow */
+    hover:border-sky-300           
+    hover:text-white               
+    hover:shadow-[0_0_8px_2px_rgba(56,189,248,0.4)]   /* Base hover glow */
+    lg:hover:shadow-[0_0_12px_3px_rgba(56,189,248,0.5)] /* Larger hover glow on lg+ */
   `;
 
-  // Styles for when a button is ACTIVE (on) - Brighter border, white text, stronger glow, transparent background
   const activeState = `
-    border-sky-300                  /* Brighter/lighter light blue border for active (sky-300 is lighter than sky-500) */
-    text-white                      /* White text/icon for active */
-    bg-transparent                  /* Ensure transparent background */
-    shadow-[0_0_15px_3px_rgba(56,189,248,0.75)]  /* Stronger Sky-400 at 75% opacity for glow */
+    border-sky-300                 
+    text-white                     
+    bg-transparent                 
+    shadow-[0_0_12px_2px_rgba(56,189,248,0.65)] /* Base active glow */
+    lg:shadow-[0_0_18px_4px_rgba(56,189,248,0.75)] /* Larger active glow on lg+ */
   `;
 
   function getButtonClasses(isOn: boolean): string {
@@ -79,9 +83,9 @@ export default function TopControlBar({
   const settingsButtonClasses = `${btnBase} ${idleState} ${hoverEffect}`;
 
   return (
-    <header className="px-2 pt-3 pb-1 mb-1 border-b border-slate-700"> {/* Reduced mb slightly */}
-      <div className="flex items-start justify-between mx-auto max-w-7xl px-1 sm:px-2 md:px-4">
-        <div className="flex flex-wrap justify-start -m-0.5 sm:-m-1"> {/* Adjusted negative margin for tighter packing if needed */}
+    <header className="px-1 sm:px-2 pt-2 sm:pt-3 pb-1 mb-1 border-b border-slate-700">
+      <div className="flex items-start justify-between mx-auto max-w-full px-1 sm:px-2 md:px-4">
+        <div className="flex flex-wrap justify-start -m-0.5 sm:-m-1">
           {/* Voice Button */}
           <div className="m-0.5 sm:m-1">
             <button className={getButtonClasses(voiceOn)} onClick={onVoiceToggle}>
@@ -123,6 +127,7 @@ export default function TopControlBar({
           </div>
         </div>
 
+        {/* Settings Gear Button */}
         <div className="m-0.5 sm:m-1">
           <button className={settingsButtonClasses} onClick={onSettingsToggle}>
             <Gear className={`${iconSize} fill-current`} />

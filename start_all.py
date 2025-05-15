@@ -24,7 +24,7 @@ GENERATOR_PATH = BASE_DIR / "ai_model" / "generate_actions_json.py"
 ENGINE_PATH    = BASE_DIR / "task_engine" / "voice_assistant.py"
 MONITOR_PATH   = BASE_DIR / "task_engine" / "task_monitor.py"
 CONSOLE_PATH   = BASE_DIR / "ai_model" / "model_console.py"
-FRONTEND_CMD   = ["npm", "run", "dev"]
+FRONTEND_CMD   = ["npm", "run", "electron:dev"]
 
 # ---------------------------------------------------------------------- #
 # 1 · Pre-flight
